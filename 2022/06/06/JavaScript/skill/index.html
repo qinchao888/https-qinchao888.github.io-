@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"qinchao888.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="qinchao888的博客">
-<meta property="og:url" content="https://qinchao888.github.io/categories/React/index.html">
+  <meta name="description" content="使用clip隐藏定位元素123el.style.position &#x3D; &amp;#x27;fixed&amp;#x27;;el.style.top &#x3D; 0;el.style.clip &#x3D; &amp;#x27;rect(0, 0, 0, 0)&amp;#x27;;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发技巧">
+<meta property="og:url" content="https://qinchao888.github.io/2022/06/06/JavaScript/skill/index.html">
 <meta property="og:site_name" content="qinchao888的博客">
+<meta property="og:description" content="使用clip隐藏定位元素123el.style.position &#x3D; &amp;#x27;fixed&amp;#x27;;el.style.top &#x3D; 0;el.style.clip &#x3D; &amp;#x27;rect(0, 0, 0, 0)&amp;#x27;;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-06T10:21:53.534Z">
+<meta property="article:modified_time" content="2022-06-06T10:23:25.736Z">
 <meta property="article:author" content="qinchao888">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://qinchao888.github.io/categories/React/">
+<link rel="canonical" href="https://qinchao888.github.io/2022/06/06/JavaScript/skill/">
 
 
 <script id="page-configurations">
@@ -36,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: React | qinchao888的博客</title>
+  <title>开发技巧 | qinchao888的博客</title>
   
 
 
@@ -172,51 +176,85 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">React
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qinchao888.github.io/2022/06/06/JavaScript/skill/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pika.jpeg">
+      <meta itemprop="name" content="qinchao888">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qinchao888的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          开发技巧
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-06 18:21:53 / 修改时间：18:23:25" itemprop="dateCreated datePublished" datetime="2022-06-06T18:21:53+08:00">2022-06-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <h3 id="使用clip隐藏定位元素"><a href="#使用clip隐藏定位元素" class="headerlink" title="使用clip隐藏定位元素"></a>使用clip隐藏定位元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">el.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;fixed&#x27;</span>;</span><br><span class="line">el.<span class="property">style</span>.<span class="property">top</span> = <span class="number">0</span>;</span><br><span class="line">el.<span class="property">style</span>.<span class="property">clip</span> = <span class="string">&#x27;rect(0, 0, 0, 0)&#x27;</span>;</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-05-27T16:54:39+08:00"
-              content="2022-05-27">
-          05-27
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/05/27/React/index/" itemprop="url">
-            <span itemprop="name">React基础知识</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/06/JavaScript/clipboard/" rel="prev" title="复制canvas图片">
+      <i class="fa fa-chevron-left"></i> 复制canvas图片
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -269,6 +307,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8clip%E9%9A%90%E8%97%8F%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">使用clip隐藏定位元素</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
