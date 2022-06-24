@@ -28,7 +28,7 @@
 <meta property="og:description" content="keyof 和 key inkey in 用于取联合类型的值 keyof 是取 对象的键，可以是interface，也可以是type 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758interface Person &amp;#123;  n">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-14T02:15:30.175Z">
-<meta property="article:modified_time" content="2022-06-14T03:39:04.949Z">
+<meta property="article:modified_time" content="2022-06-23T02:53:33.010Z">
 <meta property="article:author" content="qinchao888">
 <meta name="twitter:card" content="summary">
 
@@ -205,10 +205,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-06-14 10:15:30 / 修改时间：11:39:04" itemprop="dateCreated datePublished" datetime="2022-06-14T10:15:30+08:00">2022-06-14</time>
+              <time title="创建时间：2022-06-14 10:15:30" itemprop="dateCreated datePublished" datetime="2022-06-14T10:15:30+08:00">2022-06-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-23 10:53:33" itemprop="dateModified" datetime="2022-06-23T10:53:33+08:00">2022-06-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -233,6 +239,8 @@
         <h3 id="keyof-和-key-in"><a href="#keyof-和-key-in" class="headerlink" title="keyof 和 key in"></a>keyof 和 key in</h3><p>key in 用于取联合类型的值</p>
 <p>keyof 是取 对象的键，可以是interface，也可以是type</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Info</span> = keyof <span class="title class_">Person</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">type Info = &#x27;name&#x27; | &#x27;age&#x27;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Animal</span> = <span class="string">&#x27;dog&#x27;</span> | <span class="string">&#x27;cat&#x27;</span> | <span class="string">&#x27;bird&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Test1</span> = &#123;</span><br><span class="line">  [key <span class="keyword">in</span> <span class="title class_">Animal</span>]: &#123;</span><br><span class="line">    <span class="attr">weight</span>: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">type Test1 = &#123;</span></span><br><span class="line"><span class="comment">  dog: &#123;</span></span><br><span class="line"><span class="comment">    weight: string;</span></span><br><span class="line"><span class="comment">    age: number;</span></span><br><span class="line"><span class="comment">  &#125;;</span></span><br><span class="line"><span class="comment">  cat: &#123;</span></span><br><span class="line"><span class="comment">    weight: string;</span></span><br><span class="line"><span class="comment">    age: number;</span></span><br><span class="line"><span class="comment">  &#125;;</span></span><br><span class="line"><span class="comment">  bird: &#123;</span></span><br><span class="line"><span class="comment">    weight: string;</span></span><br><span class="line"><span class="comment">    age: number;</span></span><br><span class="line"><span class="comment">  &#125;;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">不可使用interface，否则报错：A mapped type may not declare properties or methods</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Test2</span> = &#123;</span><br><span class="line">  [key <span class="keyword">in</span> keyof <span class="title class_">Person</span>]: <span class="built_in">string</span>[];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">type Test2 = &#123;</span></span><br><span class="line"><span class="comment">  name: string[];</span></span><br><span class="line"><span class="comment">  age: string[];</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">TestType</span> = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">b</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> T = keyof <span class="title class_">TestType</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">type T = &#x27;a&#x27; | &#x27;b&#x27;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify"></a>JSON.stringify</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IObj</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JSON.stringify中的对象无法被识别，因为It&#x27;s a runtime issue, and type checking is for compile time</span></span><br><span class="line"><span class="comment"> * 所以需要手动指定JSON.parse后的对象的类型，即便JSON.stringify中的对象中的类型存在问题也无法被识别</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">obj</span>: <span class="title class_">IObj</span> = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;<span class="attr">name</span>: <span class="string">&#x27;111&#x27;</span>, <span class="attr">age</span>: <span class="number">2</span>&#125;));</span><br><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = obj;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -312,7 +320,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#keyof-%E5%92%8C-key-in"><span class="nav-number">1.</span> <span class="nav-text">keyof 和 key in</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#keyof-%E5%92%8C-key-in"><span class="nav-number">1.</span> <span class="nav-text">keyof 和 key in</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-stringify"><span class="nav-number">2.</span> <span class="nav-text">JSON.stringify</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -328,14 +336,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
