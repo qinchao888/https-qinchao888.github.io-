@@ -32,6 +32,14 @@
       </categories>
   </entry>
   <entry>
+    <title>Css基础知识</title>
+    <url>/2022/05/27/Css/index/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Css</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Cypress</title>
     <url>/2022/06/22/Cypress/index/</url>
     <content><![CDATA[<p>cypress version 10.1.0</p>
@@ -112,14 +120,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Css基础知识</title>
-    <url>/2022/05/27/Css/index/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Css</category>
-      </categories>
-  </entry>
-  <entry>
     <title>HTML基础知识</title>
     <url>/2022/05/27/HTML/index/</url>
     <content><![CDATA[<h3 id="getElementById-和-querySelector"><a href="#getElementById-和-querySelector" class="headerlink" title="getElementById 和 querySelector"></a>getElementById 和 querySelector</h3><p>querySelector中的选择器标识符不能以数字、两个连字符或一个连字符后跟一个数字开头。而getElementById则可以</p>
@@ -182,6 +182,16 @@
       </categories>
   </entry>
   <entry>
+    <title>VSCode配置</title>
+    <url>/2022/06/10/VSCode/index/</url>
+    <content><![CDATA[<h3 id="配置code命令"><a href="#配置code命令" class="headerlink" title="配置code命令"></a>配置code命令</h3><p>command + shift + p，输入 install，选择：Install ‘code’ command in PATH</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 命令行输入</span></span><br><span class="line">&gt; code test.txt</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>VSCode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>TypeScript常用语法</title>
     <url>/2022/06/14/TypeScript/index/</url>
     <content><![CDATA[<h3 id="keyof-和-key-in"><a href="#keyof-和-key-in" class="headerlink" title="keyof 和 key in"></a>keyof 和 key in</h3><p>key in 用于取联合类型的值</p>
@@ -199,16 +209,6 @@
     <content><![CDATA[]]></content>
       <categories>
         <category>Webpack</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>VSCode配置</title>
-    <url>/2022/06/10/VSCode/index/</url>
-    <content><![CDATA[<h3 id="配置code命令"><a href="#配置code命令" class="headerlink" title="配置code命令"></a>配置code命令</h3><p>command + shift + p，输入 install，选择：Install ‘code’ command in PATH</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 命令行输入</span></span><br><span class="line">&gt; code test.txt</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>VSCode</category>
       </categories>
   </entry>
 </search>
