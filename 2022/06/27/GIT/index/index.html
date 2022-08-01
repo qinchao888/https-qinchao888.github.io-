@@ -22,13 +22,13 @@
 
   <meta name="description" content="cherry-pick指定的commit应用于其他分支123# 当前分支 feat&#x2F;test，commit为f，将f应用到master分支上&gt; git checkout master&gt; git cherry-pick f  指定的commit应用于其他分支">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GIT">
+<meta property="og:title" content="GIT基础用法">
 <meta property="og:url" content="https://qinchao888.github.io/2022/06/27/GIT/index/index.html">
 <meta property="og:site_name" content="qinchao888的博客">
 <meta property="og:description" content="cherry-pick指定的commit应用于其他分支123# 当前分支 feat&#x2F;test，commit为f，将f应用到master分支上&gt; git checkout master&gt; git cherry-pick f  指定的commit应用于其他分支">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-27T10:26:33.406Z">
-<meta property="article:modified_time" content="2022-06-28T02:27:57.351Z">
+<meta property="article:modified_time" content="2022-07-28T02:20:22.570Z">
 <meta property="article:author" content="qinchao888">
 <meta name="twitter:card" content="summary">
 
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>GIT | qinchao888的博客</title>
+  <title>GIT基础用法 | qinchao888的博客</title>
   
 
 
@@ -196,7 +196,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GIT
+          GIT基础用法
         </h1>
 
         <div class="post-meta">
@@ -213,7 +213,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-28 10:27:57" itemprop="dateModified" datetime="2022-06-28T10:27:57+08:00">2022-06-28</time>
+                <time title="修改时间：2022-07-28 10:20:22" itemprop="dateModified" datetime="2022-07-28T10:20:22+08:00">2022-07-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,6 +249,12 @@
 
 <h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>将master上新的提交合并到自己的分支中</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; git rebase origin/master</span><br><span class="line">&gt; git add -A <span class="comment"># 处理冲突，如果有</span></span><br><span class="line">&gt; git rebase --<span class="built_in">continue</span> <span class="comment">#  继续合并代码</span></span><br><span class="line">&gt; git add -A <span class="comment"># 继续处理冲突，如果有</span></span><br><span class="line">...</span><br><span class="line">&gt; git push -f</span><br></pre></td></tr></table></figure>
+
+<h3 id="fetch-和-pull"><a href="#fetch-和-pull" class="headerlink" title="fetch 和 pull"></a>fetch 和 pull</h3><p>git pull 等价于 git fetch + git merge</p>
+<p>git fetch：取回所有分支的更新</p>
+<p>git merge：应用所有更新</p>
+<p>git pull origin master：拉取远程master分支上的变更并且merge到本地的master分支上</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; git checkout master <span class="comment"># 本地的master分支</span></span><br><span class="line">&gt; git fetch origin master <span class="comment"># 将origin/master上的变更拉取到本地的remotes/origin/master上</span></span><br><span class="line">&gt; git checkout origin/master</span><br><span class="line">&gt; git <span class="built_in">log</span> <span class="comment"># 可以查看到刚拉取到的新的变更</span></span><br><span class="line">&gt; git checkout master</span><br><span class="line">&gt; git merge origin/master <span class="comment"># 将本地的remotes/origin/master上新的变更merge到当前的master分支上</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -329,7 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cherry-pick"><span class="nav-number">1.</span> <span class="nav-text">cherry-pick</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%9A%84commit%E5%BA%94%E7%94%A8%E4%BA%8E%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF"><span class="nav-number">1.1.</span> <span class="nav-text">指定的commit应用于其他分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%9A%84commit%E5%BA%94%E7%94%A8%E4%BA%8E%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF-1"><span class="nav-number">1.2.</span> <span class="nav-text">指定的commit应用于其他分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clean"><span class="nav-number">2.</span> <span class="nav-text">clean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete"><span class="nav-number">3.</span> <span class="nav-text">delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rebase"><span class="nav-number">4.</span> <span class="nav-text">rebase</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cherry-pick"><span class="nav-number">1.</span> <span class="nav-text">cherry-pick</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%9A%84commit%E5%BA%94%E7%94%A8%E4%BA%8E%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF"><span class="nav-number">1.1.</span> <span class="nav-text">指定的commit应用于其他分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%9A%84commit%E5%BA%94%E7%94%A8%E4%BA%8E%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF-1"><span class="nav-number">1.2.</span> <span class="nav-text">指定的commit应用于其他分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clean"><span class="nav-number">2.</span> <span class="nav-text">clean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete"><span class="nav-number">3.</span> <span class="nav-text">delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rebase"><span class="nav-number">4.</span> <span class="nav-text">rebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fetch-%E5%92%8C-pull"><span class="nav-number">5.</span> <span class="nav-text">fetch 和 pull</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
