@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pika.jpeg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pika.jpeg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pika.jpeg">
+  <link rel="mask-icon" href="/images/pika.jpeg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qinchao888.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Reference它是一个比较抽象的类型，为了更好地描述语言的底层行为逻辑，并不存在于实际的 js 代码中。(见：8.7) 由三部分构成：  base value：值只可能是 undefined, an Object, a Boolean, a String, a Number, or an environment record 其中的一种（就是属性所在的对象或者就是 EnvironmentRec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reference">
+<meta property="og:url" content="https://qinchao888.github.io/2022/09/28/JavaScript/reference/index.html">
+<meta property="og:site_name" content="qinchao888的博客">
+<meta property="og:description" content="Reference它是一个比较抽象的类型，为了更好地描述语言的底层行为逻辑，并不存在于实际的 js 代码中。(见：8.7) 由三部分构成：  base value：值只可能是 undefined, an Object, a Boolean, a String, a Number, or an environment record 其中的一种（就是属性所在的对象或者就是 EnvironmentRec">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-28T10:16:27.894Z">
+<meta property="article:modified_time" content="2022-09-29T02:44:01.169Z">
+<meta property="article:author" content="qinchao888">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://qinchao888.github.io/2022/09/28/JavaScript/reference/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Reference | qinchao888的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">qinchao888的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qinchao888.github.io/2022/09/28/JavaScript/reference/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pika.jpeg">
+      <meta itemprop="name" content="qinchao888">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qinchao888的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Reference
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-09-28 18:16:27" itemprop="dateCreated datePublished" datetime="2022-09-28T18:16:27+08:00">2022-09-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-29 10:44:01" itemprop="dateModified" datetime="2022-09-29T10:44:01+08:00">2022-09-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>它是一个比较抽象的类型，为了更好地描述语言的底层行为逻辑，并不存在于实际的 js 代码中。(见：8.7)</p>
+<p>由三部分构成：</p>
+<ol>
+<li>base value：值只可能是 undefined, an Object, a Boolean, a String, a Number, or an environment record 其中的一种（就是属性所在的对象或者就是 EnvironmentRecord，the base value is the context in which the referenced name lives）</li>
+<li>referenced name</li>
+<li>strict reference</li>
+</ol>
+<p>操作Reference的一些方法：</p>
+<ol>
+<li>GetBase(V). Returns the base value component of the reference V.</li>
+<li>GetReferencedName(V). Returns the referenced name component of the reference V.</li>
+<li>IsStrictReference(V). Returns the strict reference component of the reference V.</li>
+<li>HasPrimitiveBase(V). Returns true if the base value is a Boolean, String, or Number.</li>
+<li>IsPropertyReference(V). Returns true if either the base value is an object or HasPrimitiveBase(V) is true; otherwise returns false.（即为undefined或environment record时返回false）</li>
+<li>IsUnresolvableReference(V). Returns true if the base value is undefined and false otherwise.</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对应的Reference是：</span></span><br><span class="line"><span class="keyword">var</span> fooReference = &#123;</span><br><span class="line">  <span class="attr">base</span>: <span class="title class_">EnvironmentRecord</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;foo&#x27;</span>,</span><br><span class="line">  <span class="attr">strict</span>: <span class="literal">false</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MemberExpression"><a href="#MemberExpression" class="headerlink" title="MemberExpression"></a>MemberExpression</h3><p>[11.2]</p>
+<p>MemberExpression一共有5种类型</p>
+<ol>
+<li>PrimaryExpression &#x2F;&#x2F; 原始表达式 可以参见《JavaScript权威指南第四章》</li>
+<li>FunctionExpression &#x2F;&#x2F; 函数定义表达式</li>
+<li>MemberExpression [ Expression ] &#x2F;&#x2F; 属性访问表达式</li>
+<li>MemberExpression . IdentifierName &#x2F;&#x2F; 属性访问表达式</li>
+<li>new MemberExpression Arguments &#x2F;&#x2F; 对象创建表达式</li>
+</ol>
+<p>The production MemberExpression : MemberExpression [ Expression ] is evaluated as follows:</p>
+<ol>
+<li>Let baseReference be the result of evaluating MemberExpression.</li>
+<li>Let baseValue be GetValue(baseReference).</li>
+<li>Let propertyNameReference be the result of evaluating Expression.</li>
+<li>Let propertyNameValue be GetValue(propertyNameReference).</li>
+<li>Call CheckObjectCoercible(baseValue).</li>
+<li>Let propertyNameString be ToString(propertyNameValue).</li>
+<li>If the syntactic production that is being evaluated is contained in strict mode code, let strict be true, else let strict be false.</li>
+<li>Return a value of type Reference whose base value is baseValue and whose referenced name is propertyNameString, and whose strict mode flag is strict.</li>
+</ol>
+<h3 id="GetValue"><a href="#GetValue" class="headerlink" title="GetValue"></a>GetValue</h3><p>[8.7.1]</p>
+<ol>
+<li>If Type(V) is not Reference, return V.</li>
+<li>Let base be the result of calling GetBase(V).</li>
+<li>If IsUnresolvableReference(V), throw a ReferenceError exception.</li>
+<li>If IsPropertyReference(V), then<br> a. If HasPrimitiveBase(V) is false, then let get be the [[Get]] internal method of base, otherwise let get be the special [[Get]] internal method defined below.<br> b. Return the result of calling the get internal method using base as its this value, and passing GetReferencedName(V) for the argument.</li>
+<li>Else, base must be an environment record.<br>  Return the result of calling the GetBindingValue (see 10.2.1) concrete method of base passing GetReferencedName(V) and IsStrictReference(V) as arguments.</li>
+</ol>
+<h3 id="函数中this的指向"><a href="#函数中this的指向" class="headerlink" title="函数中this的指向"></a>函数中this的指向</h3><p>规范 11.2.3 Function Calls</p>
+<ol>
+<li>Let ref be the result of evaluating MemberExpression.(see 11.2.1 Property Accessors，evaluating MemberExpression返回的是一个Reference)</li>
+<li>Let func be GetValue(ref).</li>
+<li>Let argList be the result of evaluating Arguments, producing an internal list of argument values (see 11.2.4).</li>
+<li>If Type(func) is not Object, throw a TypeError exception.</li>
+<li>If IsCallable(func) is false, throw a TypeError exception.</li>
+<li>If Type(ref) is Reference, then<br> a. If IsPropertyReference(ref) is true, then Let thisValue be GetBase(ref).<br> b. Else, the base of ref is an Environment Record Let thisValue be the result of calling the ImplicitThisValue concrete method of GetBase(ref).</li>
+<li>Else, Type(ref) is not Reference. Let thisValue be undefined.</li>
+<li>Return the result of calling the [[Call]] internal method on func, providing thisValue as the this value and providing the list argList as the argument values.</li>
+</ol>
+<h3 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  <span class="attr">bar</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 分析</span></span><br><span class="line">foo.<span class="title function_">bar</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据第1步和第6步可得this即为GetBase(ref)，即为foo</span></span><br><span class="line"><span class="number">1.</span> evaluating <span class="title class_">MemberExpression</span>，即为foo.<span class="property">bar</span>，其<span class="title class_">Reference</span>为：</span><br><span class="line">ref = &#123;</span><br><span class="line">  <span class="attr">base</span>: foo,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">  <span class="attr">strict</span>: <span class="literal">false</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="number">6.</span> ref是一个<span class="title class_">Reference</span>，其base value是foo，为一个对象，所以<span class="title class_">IsPropertyReference</span>(ref)返回<span class="literal">true</span>，此时<span class="variable language_">this</span>为<span class="title class_">GetBase</span>(ref)，即为foo</span><br></pre></td></tr></table></figure>
+
+<h3 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">bar</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="title function_">bar</span>()); <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((foo.<span class="property">bar</span>)()); <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((foo.<span class="property">bar</span> = foo.<span class="property">bar</span>)()); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="literal">false</span> || foo.<span class="property">bar</span>)()); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((foo.<span class="property">bar</span>, foo.<span class="property">bar</span>)()); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 分析(foo.bar)()</span></span><br><span class="line"><span class="number">11.1</span><span class="number">.6</span> <span class="title class_">The</span> <span class="title class_">Grouping</span> <span class="title class_">Operator</span></span><br><span class="line"><span class="title class_">The</span> production <span class="title class_">PrimaryExpression</span> : ( <span class="title class_">Expression</span> ) is evaluated <span class="keyword">as</span> <span class="attr">follows</span>:</span><br><span class="line"><span class="title class_">Return</span> the result <span class="keyword">of</span> evaluating <span class="title class_">Expression</span>. <span class="title class_">This</span> may be <span class="keyword">of</span> type <span class="title class_">Reference</span>.</span><br><span class="line"></span><br><span class="line">根据上述的规范(foo.<span class="property">bar</span>)的结果就是foo.<span class="property">bar</span>，等同于例<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 分析(foo.bar = foo.bar)()</span></span><br><span class="line"><span class="number">11.13</span><span class="number">.1</span> <span class="title class_">Simple</span> <span class="title class_">Assignment</span></span><br><span class="line"><span class="title class_">The</span> production <span class="title class_">AssignmentExpression</span> : <span class="title class_">LeftHandSideExpression</span> = <span class="title class_">AssignmentExpression</span> is evaluated <span class="keyword">as</span> <span class="attr">follows</span>:</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> <span class="title class_">Let</span> lref be the result <span class="keyword">of</span> evaluating <span class="title class_">LeftHandSideExpression</span>.</span><br><span class="line"><span class="number">2.</span> <span class="title class_">Let</span> rref be the result <span class="keyword">of</span> evaluating <span class="title class_">AssignmentExpression</span>.</span><br><span class="line"><span class="number">3.</span> <span class="title class_">Let</span> rval be <span class="title class_">GetValue</span>(rref).</span><br><span class="line"><span class="number">4.</span> <span class="title class_">Throw</span> a <span class="title class_">SyntaxError</span> exception <span class="keyword">if</span> the following conditions are all <span class="attr">true</span>:</span><br><span class="line">  <span class="title class_">Type</span>(lref) is <span class="title class_">Reference</span> is <span class="literal">true</span></span><br><span class="line">  <span class="title class_">IsStrictReference</span>(lref) is <span class="literal">true</span></span><br><span class="line">  <span class="title class_">Type</span>(<span class="title class_">GetBase</span>(lref)) is <span class="title class_">Environment</span> <span class="title class_">Record</span></span><br><span class="line">  <span class="title class_">GetReferencedName</span>(lref) is either <span class="string">&quot;eval&quot;</span> or <span class="string">&quot;arguments&quot;</span></span><br><span class="line"><span class="number">5.</span> <span class="title class_">Call</span> <span class="title class_">PutValue</span>(lref, rval).</span><br><span class="line"><span class="number">6.</span> <span class="title class_">Return</span> rval.</span><br><span class="line"></span><br><span class="line">根据上述的规范的第<span class="number">3</span>步得到rval是一个具体的值，不是一个<span class="title class_">Reference</span>，再根据 <span class="number">11.2</span><span class="number">.3</span> 中的第<span class="number">7</span>步得<span class="variable language_">this</span>为<span class="literal">undefined</span>，在非严格模式下，<span class="variable language_">this</span> 的值为 <span class="literal">undefined</span> 的时候，其值会被隐式转换为全局对象</span><br><span class="line"></span><br><span class="line"><span class="comment">// 分析(false || foo.bar)()</span></span><br><span class="line"><span class="number">11.11</span> <span class="title class_">Binary</span> <span class="title class_">Logical</span> <span class="title class_">Operators</span>（二元逻辑运算符）</span><br><span class="line"><span class="title class_">The</span> production <span class="title class_">LogicalORExpression</span> : <span class="title class_">LogicalORExpression</span> || <span class="title class_">LogicalANDExpression</span> is evaluated <span class="keyword">as</span> <span class="attr">follows</span>:</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> <span class="title class_">Let</span> lref be the result <span class="keyword">of</span> evaluating <span class="title class_">LogicalORExpression</span>.</span><br><span class="line"><span class="number">2.</span> <span class="title class_">Let</span> lval be <span class="title class_">GetValue</span>(lref).</span><br><span class="line"><span class="number">3.</span> <span class="title class_">If</span> <span class="title class_">ToBoolean</span>(lval) is <span class="literal">true</span>, <span class="keyword">return</span> lval.</span><br><span class="line"><span class="number">4.</span> <span class="title class_">Let</span> rref be the result <span class="keyword">of</span> evaluating <span class="title class_">LogicalANDExpression</span>.</span><br><span class="line"><span class="number">5.</span> <span class="title class_">Return</span> <span class="title class_">GetValue</span>(rref).</span><br><span class="line"></span><br><span class="line">根据上述的规范得最后返回的是<span class="title class_">GetValue</span>(rref)，即一个具体的值，不是一个<span class="title class_">Reference</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 分析(foo.bar, foo.bar)()</span></span><br><span class="line"><span class="number">11.14</span> <span class="title class_">Comma</span> <span class="title class_">Operator</span> ( , )</span><br><span class="line"><span class="title class_">The</span> production <span class="title class_">Expression</span> : <span class="title class_">Expression</span> , <span class="title class_">AssignmentExpression</span> is evaluated <span class="keyword">as</span> <span class="attr">follows</span>:</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> <span class="title class_">Let</span> lref be the result <span class="keyword">of</span> evaluating <span class="title class_">Expression</span>.</span><br><span class="line"><span class="number">2.</span> <span class="title class_">Call</span> <span class="title class_">GetValue</span>(lref).</span><br><span class="line"><span class="number">3.</span> <span class="title class_">Let</span> rref be the result <span class="keyword">of</span> evaluating <span class="title class_">AssignmentExpression</span>.</span><br><span class="line"><span class="number">4.</span> <span class="title class_">Return</span> <span class="title class_">GetValue</span>(rref).</span><br><span class="line"></span><br><span class="line">根据上述的规范得最后返回的是<span class="title class_">GetValue</span>(rref)，即一个具体的值，不是一个<span class="title class_">Reference</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>(); </span><br></pre></td></tr></table></figure>
+<p>MemberExpression 是 foo，解析标识符，查看规范 10.3.1 Identifier Resolution，会返回一个 Reference 类型的值。根据11.2.3中的第6步，base value 值是 Environment Record，所以IsPropertyReference(ref)返回false，调用 ImplicitThisValue(ref)，查看规范 10.2.1.1.6，ImplicitThisValue 方法的介绍：该函数始终返回 undefined。所以最后 this 的值就是 undefined。</p>
+<h3 id="陷阱题"><a href="#陷阱题" class="headerlink" title="陷阱题"></a>陷阱题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Foo</span>(<span class="params"></span>)&#123;</span><br><span class="line">	getName = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);					</span><br><span class="line">  ;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable language_">this</span></span><br><span class="line">&#125;</span><br><span class="line">			</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getName</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Foo</span>().<span class="title function_">getName</span>(); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// this返回的是undefined，结果为1的原因是因为执行Foo的时候，其内部的getName方法将全局的覆盖了</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://es5.github.io/#x15.1">参考1</a><br><a target="_blank" rel="noopener" href="http://yanhaijing.com/es5/#80">参考2</a><br><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/7">参考3</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/26/HTML/csp/" rel="prev" title="CSP与nonce">
+      <i class="fa fa-chevron-left"></i> CSP与nonce
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/08/TypeScript/error/" rel="next" title="TypeScript常见问题">
+      TypeScript常见问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MemberExpression"><span class="nav-number">1.1.</span> <span class="nav-text">MemberExpression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GetValue"><span class="nav-number">1.2.</span> <span class="nav-text">GetValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91"><span class="nav-number">1.3.</span> <span class="nav-text">函数中this的指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1"><span class="nav-number">1.4.</span> <span class="nav-text">例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B2"><span class="nav-number">1.5.</span> <span class="nav-text">例2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B3"><span class="nav-number">1.6.</span> <span class="nav-text">例3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%B7%E9%98%B1%E9%A2%98"><span class="nav-number">1.7.</span> <span class="nav-text">陷阱题</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qinchao888"
+      src="/images/pika.jpeg">
+  <p class="site-author-name" itemprop="name">qinchao888</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qinchao888</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
