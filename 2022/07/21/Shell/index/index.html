@@ -28,7 +28,7 @@
 <meta property="og:description" content="使用 - 或 :-当值未设置时使用默认值，否则使用当前值 123456789#!&#x2F;bin&#x2F;bash#echo hia&#x3D;&quot;value&quot;b&#x3D;$&amp;#123;a-&quot;default&quot;&amp;#125; # 也可使用:-，即：等价于：b&#x3D;$&amp;#123;a:-&quot;default&quot;&amp;#125;echo $bunset ac&#x3D;$&amp;#123;a-&quot;defa">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-21T12:10:03.299Z">
-<meta property="article:modified_time" content="2022-07-22T06:12:08.959Z">
+<meta property="article:modified_time" content="2022-11-02T03:42:58.292Z">
 <meta property="article:author" content="qinchao888">
 <meta name="twitter:card" content="summary">
 
@@ -213,7 +213,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-22 14:12:08" itemprop="dateModified" datetime="2022-07-22T14:12:08+08:00">2022-07-22</time>
+                <time title="修改时间：2022-11-02 11:42:58" itemprop="dateModified" datetime="2022-11-02T11:42:58+08:00">2022-11-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,6 +240,11 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#echo hi</span></span><br><span class="line"></span><br><span class="line">a=<span class="string">&quot;value&quot;</span></span><br><span class="line">b=<span class="variable">$&#123;a-&quot;default&quot;&#125;</span> <span class="comment"># 也可使用:-，即：等价于：b=$&#123;a:-&quot;default&quot;&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$b</span></span><br><span class="line"><span class="built_in">unset</span> a</span><br><span class="line">c=<span class="variable">$&#123;a-&quot;default&quot;&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$c</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># linux use</span></span><br><span class="line">. /etc/profile <span class="comment"># is the same as source /etc/profile</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="x2F-usr-x2F-bin-x2F-env"><a href="#x2F-usr-x2F-bin-x2F-env" class="headerlink" title="&#x2F;usr&#x2F;bin&#x2F;env"></a>&#x2F;usr&#x2F;bin&#x2F;env</h3><p>#!&#x2F;usr&#x2F;bin&#x2F;env node：其中的&#x2F;usr&#x2F;bin&#x2F;env告诉系统在PATH环境变量中查找node来执行脚本文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span> | grep PATH <span class="comment"># 查看PATH路径</span></span><br><span class="line"><span class="built_in">which</span> node <span class="comment"># 查看node的安装路径</span></span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -319,7 +324,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-%E6%88%96"><span class="nav-number">1.</span> <span class="nav-text">使用 - 或 :-</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">环境变量</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-%E6%88%96"><span class="nav-number">1.</span> <span class="nav-text">使用 - 或 :-</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x2F-usr-x2F-bin-x2F-env"><span class="nav-number">3.</span> <span class="nav-text">&#x2F;usr&#x2F;bin&#x2F;env</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -335,14 +340,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>

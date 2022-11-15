@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pika.jpeg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pika.jpeg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pika.jpeg">
+  <link rel="mask-icon" href="/images/pika.jpeg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qinchao888.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="新特性 Class FieldsPublic Instance Fields实例公共属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES2022新特性">
+<meta property="og:url" content="https://qinchao888.github.io/2022/10/31/JavaScript/es2022/index.html">
+<meta property="og:site_name" content="qinchao888的博客">
+<meta property="og:description" content="新特性 Class FieldsPublic Instance Fields实例公共属性">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-31T12:12:10.770Z">
+<meta property="article:modified_time" content="2022-11-04T07:28:45.049Z">
+<meta property="article:author" content="qinchao888">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://qinchao888.github.io/2022/10/31/JavaScript/es2022/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>ES2022新特性 | qinchao888的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">qinchao888的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qinchao888.github.io/2022/10/31/JavaScript/es2022/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pika.jpeg">
+      <meta itemprop="name" content="qinchao888">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qinchao888的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ES2022新特性
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-31 20:12:10" itemprop="dateCreated datePublished" datetime="2022-10-31T20:12:10+08:00">2022-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-04 15:28:45" itemprop="dateModified" datetime="2022-11-04T15:28:45+08:00">2022-11-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://github.com/tc39/proposals/blob/HEAD/finished-proposals.md">新特性</a></p>
+<h3 id="Class-Fields"><a href="#Class-Fields" class="headerlink" title="Class Fields"></a>Class Fields</h3><h4 id="Public-Instance-Fields"><a href="#Public-Instance-Fields" class="headerlink" title="Public Instance Fields"></a>Public Instance Fields</h4><p>实例公共属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  a = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="title class_">Test</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">a</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">之前在constructor中定义</span></span><br><span class="line"><span class="comment">class Test &#123;</span></span><br><span class="line"><span class="comment">  constructor () &#123;</span></span><br><span class="line"><span class="comment">    this.a = 0</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Private-Instance-Fields"><a href="#Private-Instance-Fields" class="headerlink" title="Private Instance Fields"></a>Private Instance Fields</h4><p>使用#标识属性为私有属性，只能在类的内部访问</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  #a = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="title class_">Test</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.#a) <span class="comment">// Uncaught SyntaxError: Private field &#x27;#a&#x27; must be declared in an enclosing class</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Static-class-fields-and-private-static-methods"><a href="#Static-class-fields-and-private-static-methods" class="headerlink" title="Static class fields and private static methods"></a>Static class fields and private static methods</h4><p>使用static声明静态属性或方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> a = <span class="number">0</span></span><br><span class="line">  <span class="keyword">static</span> #b = <span class="number">1</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">static</span> getA () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">static</span> #getB () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.#b</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> getB () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.#<span class="title function_">getB</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Test</span>.<span class="property">a</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Test</span>.<span class="title function_">getA</span>()) <span class="comment">// 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Test</span>.<span class="title function_">getB</span>()) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Private-instance-methods-and-accessors"><a href="#Private-instance-methods-and-accessors" class="headerlink" title="Private instance methods and accessors"></a>Private instance methods and accessors</h3><p>使用#标识访问器或实例方法为私有</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  #a = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 私有访问器</span></span><br><span class="line">  get #getA1 () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.#a</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 私有实例方法</span></span><br><span class="line">  #getA2 () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.#a</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">getA3</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.#getA1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="title class_">Test</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.#getA1) <span class="comment">// Uncaught SyntaxError: Private field &#x27;#getA1&#x27; must be declared in an enclosing class</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.#<span class="title function_">getA2</span>()) <span class="comment">// Uncaught SyntaxError: Private field &#x27;#getA2&#x27; must be declared in an enclosing class</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="title function_">getA3</span>()) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="RegExp-Match-Indices"><a href="#RegExp-Match-Indices" class="headerlink" title="RegExp Match Indices"></a>RegExp Match Indices</h3><p>新增&#x2F;d修饰符，在使用exec执行匹配后，返回一个indices属性，包含了返回匹配结果的开始索引和结束索引。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;abcda&#x27;</span></span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/a/g</span>d</span><br><span class="line">reg.<span class="title function_">exec</span>(str).<span class="property">indices</span>[<span class="number">0</span>] <span class="comment">// [0, 1]</span></span><br><span class="line">reg.<span class="title function_">exec</span>(str).<span class="property">indices</span>[<span class="number">0</span>] <span class="comment">// [4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Top-level-await"><a href="#Top-level-await" class="headerlink" title="Top-level await"></a>Top-level await</h3><p>在全局作用域中可以使用await，而不需要放在async函数中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = <span class="keyword">await</span> <span class="title function_">fetch</span>(...)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dynamic =  <span class="keyword">await</span> <span class="title function_">import</span>(...)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ergonomic-brand-checks-for-Private-Fields"><a href="#Ergonomic-brand-checks-for-Private-Fields" class="headerlink" title="Ergonomic brand checks for Private Fields"></a>Ergonomic brand checks for Private Fields</h3><p>使用in关键字用来检测某一实例是否含有私有属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  #foo</span><br><span class="line"></span><br><span class="line">  #<span class="title function_">method</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  get #<span class="title function_">getter</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//检测是否含有私有字段</span></span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">hasPrivateFields</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> #foo <span class="keyword">in</span> obj &amp;&amp; #method <span class="keyword">in</span> obj &amp;&amp; #getter <span class="keyword">in</span> obj</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="title class_">Test</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Test</span>.<span class="title function_">hasPrivateFields</span>(obj)) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原始的处理方式</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  #foo</span><br><span class="line"></span><br><span class="line">  #<span class="title function_">method</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  get #<span class="title function_">getter</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//检测是否含有私有字段</span></span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">hasPrivateFields</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      obj.#foo</span><br><span class="line">      obj.#method</span><br><span class="line">      obj.#getter</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="title class_">Test</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Test</span>.<span class="title function_">hasPrivateFields</span>(obj)) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="at"><a href="#at" class="headerlink" title="at"></a>at</h3><p>获取指定位置的元素，负数从末尾计算</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">arr.<span class="title function_">at</span>(-<span class="number">1</span>) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="hasOwn"><a href="#hasOwn" class="headerlink" title="hasOwn"></a>hasOwn</h3><p>作用与hasOwnProperty相同，都是用于判断对象是否具有自身的一个属性</p>
+<h4 id="与hasOwnProperty的区别"><a href="#与hasOwnProperty的区别" class="headerlink" title="与hasOwnProperty的区别"></a>与hasOwnProperty的区别</h4><ol>
+<li>hasOwnProperty可能会被重写</li>
+<li>hasOwnProperty可能不可用</li>
+<li>在eslint的no-prototype-builtins规则中需要使用Object.prototype.hasOwnProperty.call(obj, property)的方式调用</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  <span class="attr">hasOwnProperty</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">35</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">hasOwn</span>(person, <span class="string">&#x27;age&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">person.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;age&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="comment">// Object.create(null) 会创建一个不从 Object.prototype 继承的对象，这使得Object.prototype 上的方法无法访问，即此时的hasOwnProperty将报错</span></span><br><span class="line"><span class="keyword">let</span> person = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="literal">null</span>)</span><br><span class="line">person.<span class="property">age</span> = <span class="number">35</span>;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">hasOwn</span>(person, <span class="string">&#x27;age&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">person.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;age&#x27;</span>) <span class="comment">// Uncaught TypeError: person.hasOwnProperty is not a function</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/69561596/object-hasown-vs-object-prototype-hasownproperty">参考一</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/385865696">参考二</a><br><a target="_blank" rel="noopener" href="https://eslint.org/docs/latest/rules/no-prototype-builtins">参考三</a></p>
+<h3 id="Class-Static-Block"><a href="#Class-Static-Block" class="headerlink" title="Class Static Block"></a>Class Static Block</h3><p>静态代码块，可以在类中修改静态变量值，而无需在类的外侧执行。注意：这些逻辑不能放到构造函数里面，因为在构造函数中，只能初始化具体某一实例的变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// without static blocks:</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> x = ...;</span><br><span class="line">  <span class="keyword">static</span> y;</span><br><span class="line">  <span class="keyword">static</span> z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> obj = <span class="title function_">doSomethingWith</span>(C.<span class="property">x</span>);</span><br><span class="line">  C.<span class="property">y</span> = obj.<span class="property">y</span></span><br><span class="line">  C.<span class="property">z</span> = obj.<span class="property">z</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> &#123;</span><br><span class="line">  C.<span class="property">y</span> = ...;</span><br><span class="line">  C.<span class="property">z</span> = ...;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// with static blocks:</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> x = ...;</span><br><span class="line">  <span class="keyword">static</span> y;</span><br><span class="line">  <span class="keyword">static</span> z;</span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> obj = <span class="title function_">doSomethingWith</span>(<span class="variable language_">this</span>.<span class="property">x</span>);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">y</span> = obj.<span class="property">y</span>;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">z</span> = obj.<span class="property">z</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">y</span> = ...;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">z</span> = ...;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> x = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span> () &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = <span class="number">20</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = <span class="number">20</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Error-Cause"><a href="#Error-Cause" class="headerlink" title="Error Cause"></a>Error Cause</h3><p>提供一个cause属性用于描述错误信息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="title function_">connectToDatabase</span>();</span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Connecting to database failed.&#x27;</span>, &#123; <span class="attr">cause</span>: err &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 替代方式：</span></span><br><span class="line"><span class="comment"> * const wrapErr = new Error(&#x27;Connecting to database failed.&#x27;);</span></span><br><span class="line"><span class="comment"> * wrapErr.cause = err;</span></span><br><span class="line"><span class="comment"> * throw wrapErr;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>其他属性</p>
+<ol>
+<li>name：错误名称。由构造函数决定。</li>
+<li>message：错误消息。即构造函数的第一个参数提供的字符串。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&#x27;this is a test error&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">name</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// TypeError</span></span><br><span class="line"><span class="comment">// this is a test error</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/28/JavaScript/algorithm/" rel="prev" title="常见算法">
+      <i class="fa fa-chevron-left"></i> 常见算法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/11/02/JavaScript/es2023/" rel="next" title="ES2023新特性">
+      ES2023新特性 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Fields"><span class="nav-number">1.</span> <span class="nav-text">Class Fields</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Public-Instance-Fields"><span class="nav-number">1.1.</span> <span class="nav-text">Public Instance Fields</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Private-Instance-Fields"><span class="nav-number">1.2.</span> <span class="nav-text">Private Instance Fields</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Static-class-fields-and-private-static-methods"><span class="nav-number">1.3.</span> <span class="nav-text">Static class fields and private static methods</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Private-instance-methods-and-accessors"><span class="nav-number">2.</span> <span class="nav-text">Private instance methods and accessors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-Match-Indices"><span class="nav-number">3.</span> <span class="nav-text">RegExp Match Indices</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-level-await"><span class="nav-number">4.</span> <span class="nav-text">Top-level await</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ergonomic-brand-checks-for-Private-Fields"><span class="nav-number">5.</span> <span class="nav-text">Ergonomic brand checks for Private Fields</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#at"><span class="nav-number">6.</span> <span class="nav-text">at</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hasOwn"><span class="nav-number">7.</span> <span class="nav-text">hasOwn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8EhasOwnProperty%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">7.1.</span> <span class="nav-text">与hasOwnProperty的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Static-Block"><span class="nav-number">8.</span> <span class="nav-text">Class Static Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-Cause"><span class="nav-number">9.</span> <span class="nav-text">Error Cause</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qinchao888"
+      src="/images/pika.jpeg">
+  <p class="site-author-name" itemprop="name">qinchao888</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qinchao888</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
