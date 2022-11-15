@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Babel</title>
-    <url>/2022/08/18/Babel/index/</url>
-    <content><![CDATA[<h2 id="cli"><a href="#cli" class="headerlink" title="cli"></a>cli</h2><p>命令行使用babel</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install @babel/core @babel/cli -g</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>babel</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Chrome常用快捷键</title>
     <url>/2022/07/04/Chrome/keyboard/</url>
     <content><![CDATA[<table>
@@ -106,22 +97,12 @@
       </categories>
   </entry>
   <entry>
-    <title>常用网站</title>
-    <url>/2022/06/21/Chrome/website/</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 纯文本网站</span></span><br><span class="line"><span class="attr">data</span>:text/html, <span class="language-xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">contenteditable</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://caniuse.com/">caniuse</a></p>
-]]></content>
+    <title>Babel</title>
+    <url>/2022/08/18/Babel/index/</url>
+    <content><![CDATA[<h2 id="cli"><a href="#cli" class="headerlink" title="cli"></a>cli</h2><p>命令行使用babel</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install @babel/core @babel/cli -g</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Chrome</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Css常用的对齐技巧</title>
-    <url>/2022/08/15/Css/align/</url>
-    <content><![CDATA[<h3 id="图标与多行内容中的第一行内容垂直居中对齐"><a href="#图标与多行内容中的第一行内容垂直居中对齐" class="headerlink" title="图标与多行内容中的第一行内容垂直居中对齐"></a>图标与多行内容中的第一行内容垂直居中对齐</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">display</span>: inline-flex;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">align-items</span>: flex-start;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.icon-wrap</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">display</span>: inline-flex;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">line-height</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.icon</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">flex-shrink</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">17px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">height</span>: <span class="number">17px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">line-height</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.title-wrap</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">word-break</span>: break-word;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">font-size</span>: <span class="number">15px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">line-height</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.notice-msg</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">color</span>: <span class="number">#1f2329</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.notice-title</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">color</span>: <span class="number">#245bdb</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.hidden</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;icon-wrap&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background:url(&#x27;data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12%2023c6.075%200%2011-4.925%2011-11S18.075%201%2012%201%201%205.925%201%2012s4.925%2011%2011%2011Z%22%20fill%3D%22%233370ff%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M13%207.5a1%201%200%201%200-2%200%201%201%200%200%200%202%200Zm-2%204v4h-.5a1%201%200%201%200%200%202h3a1%201%200%201%200%200-2H13c0-.667%200-1.333.002-2%200-1.001.002-2.002%200-3.004a.998.998%200%200%200-.998-.996H11a1%201%200%201%200%200%202Z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E&#x27;) no-repeat;background-size:100% 100%;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;hidden&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;title-wrap&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;notice-msg&quot;</span>&gt;</span>【提示信息】：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;notice-title&quot;</span>&gt;</span>我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Css</category>
+        <category>babel</category>
       </categories>
   </entry>
   <entry>
@@ -136,6 +117,25 @@
 <figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.remMixin</span>() &#123;</span><br><span class="line">  <span class="variable">@functions:</span> <span class="built_in">~`(function() &#123;</span></span><br><span class="line"><span class="built_in">    this.rem = function(size) &#123;</span></span><br><span class="line"><span class="built_in">      return size * 10 / 375 + &#x27;rem&#x27;;</span></span><br><span class="line"><span class="built_in">    &#125;</span></span><br><span class="line"><span class="built_in">  &#125;)()`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.remMixin</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 */</span></span><br><span class="line"><span class="selector-class">.width</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">~`rem(375)`</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Css</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Css常用的对齐技巧</title>
+    <url>/2022/08/15/Css/align/</url>
+    <content><![CDATA[<h3 id="图标与多行内容中的第一行内容垂直居中对齐"><a href="#图标与多行内容中的第一行内容垂直居中对齐" class="headerlink" title="图标与多行内容中的第一行内容垂直居中对齐"></a>图标与多行内容中的第一行内容垂直居中对齐</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">display</span>: inline-flex;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">align-items</span>: flex-start;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.icon-wrap</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">display</span>: inline-flex;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">line-height</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.icon</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">flex-shrink</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">17px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">height</span>: <span class="number">17px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">line-height</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.title-wrap</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">word-break</span>: break-word;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">font-size</span>: <span class="number">15px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">line-height</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.notice-msg</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">color</span>: <span class="number">#1f2329</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.notice-title</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">color</span>: <span class="number">#245bdb</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.hidden</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;icon-wrap&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background:url(&#x27;data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12%2023c6.075%200%2011-4.925%2011-11S18.075%201%2012%201%201%205.925%201%2012s4.925%2011%2011%2011Z%22%20fill%3D%22%233370ff%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M13%207.5a1%201%200%201%200-2%200%201%201%200%200%200%202%200Zm-2%204v4h-.5a1%201%200%201%200%200%202h3a1%201%200%201%200%200-2H13c0-.667%200-1.333.002-2%200-1.001.002-2.002%200-3.004a.998.998%200%200%200-.998-.996H11a1%201%200%201%200%200%202Z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E&#x27;) no-repeat;background-size:100% 100%;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;hidden&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;title-wrap&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;notice-msg&quot;</span>&gt;</span>【提示信息】：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;notice-title&quot;</span>&gt;</span>我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Css</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常用网站</title>
+    <url>/2022/06/21/Chrome/website/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 纯文本网站</span></span><br><span class="line"><span class="attr">data</span>:text/html, <span class="language-xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">contenteditable</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://caniuse.com/">caniuse</a></p>
+]]></content>
+      <categories>
+        <category>Chrome</category>
       </categories>
   </entry>
   <entry>
@@ -167,6 +167,23 @@
 ]]></content>
       <categories>
         <category>Css</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>ESLint</title>
+    <url>/2022/08/24/ESLint/index/</url>
+    <content><![CDATA[<h2 id="vscode配置使用eslint"><a href="#vscode配置使用eslint" class="headerlink" title="vscode配置使用eslint"></a>vscode配置使用eslint</h2><ol>
+<li>安装 ESLint 插件</li>
+<li>Settings中配置ESLint的auto fix on save，设置为on即可</li>
+<li>在项目下新建.eslintrc文件，自定义配置一些rules</li>
+<li>在项目下新建.eslintignore文件，忽略某些文件或文件夹的校验</li>
+</ol>
+<h2 id="create-react-app"><a href="#create-react-app" class="headerlink" title="create-react-app"></a>create-react-app</h2><h3 id="项目中配置了新的eslint规则，但是命令行依旧输出一堆的warning"><a href="#项目中配置了新的eslint规则，但是命令行依旧输出一堆的warning" class="headerlink" title="项目中配置了新的eslint规则，但是命令行依旧输出一堆的warning"></a>项目中配置了新的eslint规则，但是命令行依旧输出一堆的warning</h3><p>原因：create-react-app 中配置了 eslint-loader，先前运行时输出的warning会被缓存起来，如果配置新的rules，此时warning将依旧存在</p>
+<p>解决办法：删除node_modules&#x2F;.cache&#x2F;eslint-loader</p>
+<p>注意：配置新的rules后需要重启项目</p>
+]]></content>
+      <categories>
+        <category>ESLint</category>
       </categories>
   </entry>
   <entry>
@@ -226,23 +243,6 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cy.<span class="title function_">get</span>(<span class="string">&#x27;#comparison&#x27;</span>)</span><br><span class="line">  .<span class="title function_">get</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">  <span class="comment">// finds the div.test-title outside the #comparison</span></span><br><span class="line">  <span class="comment">// and the div.feature inside</span></span><br><span class="line">  .<span class="title function_">should</span>(<span class="string">&#x27;have.class&#x27;</span>, <span class="string">&#x27;test-title&#x27;</span>)</span><br><span class="line">  .<span class="title function_">and</span>(<span class="string">&#x27;have.class&#x27;</span>, <span class="string">&#x27;feature&#x27;</span>)</span><br><span class="line">cy.<span class="title function_">get</span>(<span class="string">&#x27;#comparison&#x27;</span>)</span><br><span class="line">  .<span class="title function_">find</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">  <span class="comment">// the search is limited to the tree at #comparison element</span></span><br><span class="line">  <span class="comment">// so it finds div.feature only</span></span><br><span class="line">  .<span class="title function_">should</span>(<span class="string">&#x27;have.length&#x27;</span>, <span class="number">1</span>)</span><br><span class="line">  .<span class="title function_">and</span>(<span class="string">&#x27;have.class&#x27;</span>, <span class="string">&#x27;feature&#x27;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Cypress</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>ESLint</title>
-    <url>/2022/08/24/ESLint/index/</url>
-    <content><![CDATA[<h2 id="vscode配置使用eslint"><a href="#vscode配置使用eslint" class="headerlink" title="vscode配置使用eslint"></a>vscode配置使用eslint</h2><ol>
-<li>安装 ESLint 插件</li>
-<li>Settings中配置ESLint的auto fix on save，设置为on即可</li>
-<li>在项目下新建.eslintrc文件，自定义配置一些rules</li>
-<li>在项目下新建.eslintignore文件，忽略某些文件或文件夹的校验</li>
-</ol>
-<h2 id="create-react-app"><a href="#create-react-app" class="headerlink" title="create-react-app"></a>create-react-app</h2><h3 id="项目中配置了新的eslint规则，但是命令行依旧输出一堆的warning"><a href="#项目中配置了新的eslint规则，但是命令行依旧输出一堆的warning" class="headerlink" title="项目中配置了新的eslint规则，但是命令行依旧输出一堆的warning"></a>项目中配置了新的eslint规则，但是命令行依旧输出一堆的warning</h3><p>原因：create-react-app 中配置了 eslint-loader，先前运行时输出的warning会被缓存起来，如果配置新的rules，此时warning将依旧存在</p>
-<p>解决办法：删除node_modules&#x2F;.cache&#x2F;eslint-loader</p>
-<p>注意：配置新的rules后需要重启项目</p>
-]]></content>
-      <categories>
-        <category>ESLint</category>
       </categories>
   </entry>
   <entry>
@@ -706,6 +706,14 @@
       </categories>
   </entry>
   <entry>
+    <title>Node基础用法</title>
+    <url>/2022/07/22/Node/index/</url>
+    <content><![CDATA[<h2 id="fs"><a href="#fs" class="headerlink" title="fs"></a>fs</h2><h3 id="输出日志"><a href="#输出日志" class="headerlink" title="输出日志"></a>输出日志</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// flags: &#x27;a&#x27; 表示打开文件进行追加。 如果文件不存在，则创建该文件。</span></span><br><span class="line"><span class="keyword">const</span> logFile = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;out.log&#x27;</span>, &#123; <span class="attr">flags</span>: <span class="string">&#x27;a&#x27;</span> &#125;);</span><br><span class="line">logFile.<span class="title function_">write</span>(util.<span class="property">format</span>.<span class="title function_">apply</span>(<span class="literal">null</span>, [<span class="string">&#x27;内容1&#x27;</span>, <span class="string">&#x27;内容2&#x27;</span>]]) + <span class="string">&#x27;\n&#x27;</span>);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Mobx基础用法</title>
     <url>/2022/07/05/Mobx/index/</url>
     <content><![CDATA[<p>当前版本：”mobx”: “^6.6.1”, “mobx-react”: “^7.5.1”</p>
@@ -722,14 +730,6 @@
 ]]></content>
       <categories>
         <category>Mobx</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Node基础用法</title>
-    <url>/2022/07/22/Node/index/</url>
-    <content><![CDATA[<h2 id="fs"><a href="#fs" class="headerlink" title="fs"></a>fs</h2><h3 id="输出日志"><a href="#输出日志" class="headerlink" title="输出日志"></a>输出日志</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// flags: &#x27;a&#x27; 表示打开文件进行追加。 如果文件不存在，则创建该文件。</span></span><br><span class="line"><span class="keyword">const</span> logFile = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;out.log&#x27;</span>, &#123; <span class="attr">flags</span>: <span class="string">&#x27;a&#x27;</span> &#125;);</span><br><span class="line">logFile.<span class="title function_">write</span>(util.<span class="property">format</span>.<span class="title function_">apply</span>(<span class="literal">null</span>, [<span class="string">&#x27;内容1&#x27;</span>, <span class="string">&#x27;内容2&#x27;</span>]]) + <span class="string">&#x27;\n&#x27;</span>);</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Node</category>
       </categories>
   </entry>
   <entry>
@@ -797,6 +797,17 @@
       </categories>
   </entry>
   <entry>
+    <title>React Css</title>
+    <url>/2022/08/04/React/css/</url>
+    <content><![CDATA[<h2 id="styleName"><a href="#styleName" class="headerlink" title="styleName"></a>styleName</h2><p>使用 react-css-modules 识别页面上设置的styleName，可配置将其解析成hash形式</p>
+<h3 id="当做组件的props传递"><a href="#当做组件的props传递" class="headerlink" title="当做组件的props传递"></a>当做组件的props传递</h3><figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./index.less&#x27;</span>;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Test</span> <span class="attr">styleName</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">// 经过 react-css-modules 编译成了一个字符串作为className传递给子组件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Test.tsx</span></span><br><span class="line"><span class="comment">// 使用 props.className接收组件的styleName</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="variable constant_">FC</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">TestProps</span> &#123;</span><br><span class="line">  styleName?: <span class="built_in">string</span>; <span class="comment">// 用于识别ts</span></span><br><span class="line">  className?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Test</span>: <span class="variable constant_">FC</span>&lt;<span class="title class_">TestProps</span>&gt; = (props) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; className &#125; = props;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;className&#125;</span>&gt;</span>this is a test example<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+  </entry>
+  <entry>
     <title>React的Context</title>
     <url>/2022/07/21/React/context/</url>
     <content><![CDATA[<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><ol>
@@ -834,17 +845,6 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;<span class="title class_">Level1</span> name=&#123;name&#125; age=&#123;age&#125; /&gt;</span><br><span class="line"><span class="comment">// 渲染出</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Level2</span> <span class="attr">name</span>=<span class="string">&#123;name&#125;</span> <span class="attr">age</span>=<span class="string">&#123;age&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="comment">// 渲染出</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Level3</span> <span class="attr">name</span>=<span class="string">&#123;name&#125;</span> <span class="attr">age</span>=<span class="string">&#123;age&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="comment">// 渲染出</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;name&#125;: &#123;age&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 替代方案</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Level1</span> = (<span class="params">props</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; name, age &#125; = props;</span><br><span class="line">  <span class="keyword">const</span> com = (<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;name&#125;: &#123;age&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)</span><br><span class="line">  <span class="keyword">return</span> (<span class="language-xml"><span class="tag">&lt;<span class="name">Level2</span> <span class="attr">com</span>=<span class="string">&#123;com&#125;</span> /&gt;</span></span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Level2</span> com=&#123;com&#125; /&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Level3</span> <span class="attr">com</span>=<span class="string">&#123;com&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="comment">// 渲染出</span></span><br><span class="line">&#123; props.<span class="property">com</span> &#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>React Css</title>
-    <url>/2022/08/04/React/css/</url>
-    <content><![CDATA[<h2 id="styleName"><a href="#styleName" class="headerlink" title="styleName"></a>styleName</h2><p>使用 react-css-modules 识别页面上设置的styleName，可配置将其解析成hash形式</p>
-<h3 id="当做组件的props传递"><a href="#当做组件的props传递" class="headerlink" title="当做组件的props传递"></a>当做组件的props传递</h3><figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./index.less&#x27;</span>;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Test</span> <span class="attr">styleName</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">// 经过 react-css-modules 编译成了一个字符串作为className传递给子组件</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Test.tsx</span></span><br><span class="line"><span class="comment">// 使用 props.className接收组件的styleName</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="variable constant_">FC</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">TestProps</span> &#123;</span><br><span class="line">  styleName?: <span class="built_in">string</span>; <span class="comment">// 用于识别ts</span></span><br><span class="line">  className?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Test</span>: <span class="variable constant_">FC</span>&lt;<span class="title class_">TestProps</span>&gt; = (props) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; className &#125; = props;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;className&#125;</span>&gt;</span>this is a test example<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>React</category>
       </categories>
@@ -892,15 +892,6 @@
       </categories>
   </entry>
   <entry>
-    <title>TypeScript常见问题</title>
-    <url>/2022/10/08/TypeScript/error/</url>
-    <content><![CDATA[<h3 id="版本升级"><a href="#版本升级" class="headerlink" title="版本升级"></a>版本升级</h3><p>从3.x升级至4.x</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 4.x中以下代码声明正常，而3.x将会报错</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">declare</span> <span class="keyword">type</span> <span class="title class_">Test</span> = [</span><br><span class="line">  <span class="attr">win</span>: <span class="title class_">Window</span>,</span><br><span class="line">  <span class="attr">document</span>: <span class="title class_">Document</span>,</span><br><span class="line">  <span class="title class_">XMLHttpRequest</span>: <span class="keyword">typeof</span> <span class="title class_">XMLHttpRequest</span>,</span><br><span class="line">  <span class="title class_">MutationObserver</span>: <span class="keyword">typeof</span> <span class="title class_">MutationObserver</span>,</span><br><span class="line">  <span class="attr">performance</span>: <span class="title class_">Performance</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>TypeScript</category>
-      </categories>
-  </entry>
-  <entry>
     <title>TypeScript配置</title>
     <url>/2022/10/28/TypeScript/config/</url>
     <content><![CDATA[<h3 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h3><ol>
@@ -909,6 +900,15 @@
 <li>当命令行上指定了输入文件时，tsconfig.json文件会被忽略</li>
 </ol>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 初始化生成一个tsconfig.json文件</span></span><br><span class="line">tsc --init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定文件名称时，tsconfig.json配置不会生效</span></span><br><span class="line">tsc a.ts</span><br><span class="line"></span><br><span class="line"><span class="comment"># tsconfig.json配置生效</span></span><br><span class="line">tsc</span><br><span class="line"></span><br><span class="line"><span class="comment"># tsconfig.json配置生效</span></span><br><span class="line">tsc -p ./</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>TypeScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>TypeScript常见问题</title>
+    <url>/2022/10/08/TypeScript/error/</url>
+    <content><![CDATA[<h3 id="版本升级"><a href="#版本升级" class="headerlink" title="版本升级"></a>版本升级</h3><p>从3.x升级至4.x</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 4.x中以下代码声明正常，而3.x将会报错</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">declare</span> <span class="keyword">type</span> <span class="title class_">Test</span> = [</span><br><span class="line">  <span class="attr">win</span>: <span class="title class_">Window</span>,</span><br><span class="line">  <span class="attr">document</span>: <span class="title class_">Document</span>,</span><br><span class="line">  <span class="title class_">XMLHttpRequest</span>: <span class="keyword">typeof</span> <span class="title class_">XMLHttpRequest</span>,</span><br><span class="line">  <span class="title class_">MutationObserver</span>: <span class="keyword">typeof</span> <span class="title class_">MutationObserver</span>,</span><br><span class="line">  <span class="attr">performance</span>: <span class="title class_">Performance</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>TypeScript</category>
       </categories>
